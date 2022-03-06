@@ -15,11 +15,6 @@
 	<description>Project Workshop</description>
 	<properties>
 		<java.version>11</java.version>
-		<version>3.1</version>
-		<configuration>
-			<source>1.8</source>
-			<target>1.8</target>
-		</configuration>
 	</properties>
 	<dependencies>
 		<dependency>
