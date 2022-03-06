@@ -17,6 +17,6 @@ public class PersonController {
 
     @GetMapping
     public String getVeiculo() {
-        return "Commit";
+        return "Test Commit terminal";
     }
 }
