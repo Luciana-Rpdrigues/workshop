@@ -3,32 +3,43 @@ package com.luciana.desafio.workshop.controller;
 import com.luciana.desafio.workshop.contact_of_customer.Person;
 import com.luciana.desafio.workshop.dto.response.MessageResponseDTO;
 import com.luciana.desafio.workshop.repository.PersonRepository;
+import com.luciana.desafio.workshop.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController // aplicações
-@RequestMapping ("/api/v1/people")
+@RequestMapping //("/api/v1/people")
 public class PersonController {
 
-    private PersonRepository personRepository;
+    private PersonService personService;
 
-    @Autowired
-    public PersonController(PersonRepository workshopRepository) {
-        this.personRepository = personRepository;
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public MessageResponseDTO createPerson(@RequestBody @Valid PersonDTO personDTO) {
+        return personService.createPerson(personDTO);
     }
 
     @GetMapping
-    public MessageResponseDTO createWorkshop(@RequestBody Person person) {
-        Person savedPerson = personRepository.save(person);
-        return MessageResponseDTO
-                .builder()
-                .message(("Create person withj ID " + savedPerson.getId()))
-                .build();
+    public List<PersonDTO> listAll() {
+        return personService.listAll();
+    }
+
+    @GetMapping("/{id}")
+    public PersonDTO findById(@PathVariable Long id) throws PersonNotFoundException {
+        return personService.findById(id);
+    }
+
+    @PutMapping("/{id}")
+    public MessageResponseDTO updateById(@PathVariable Long id, @RequestBody @Valid PersonDTO personDTO) throws PersonNotFoundException {
+        return personService.updateById(id, personDTO);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteById(@PathVariable Long id) throws PersonNotFoundException {
+        personService.delete(id);
     }
 }
