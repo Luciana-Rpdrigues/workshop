@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController // aplicações
-@RequestMapping //("/api/v1/people")
+@RequestMapping ("/api/v1/people")
 public class PersonController {
 
     private PersonService personService;
