@@ -1,6 +1,5 @@
 package com.luciana.desafio.workshop.controller;
 
-import com.luciana.desafio.workshop.contact_of_customer.Person;
 import com.luciana.desafio.workshop.dto.request.PersonDTO;
 import com.luciana.desafio.workshop.dto.response.MessageResponseDTO;
 import com.luciana.desafio.workshop.exception.PersonNofFoundException;
@@ -24,7 +23,7 @@ public class PersonController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public MessageResponseDTO createPerson(@RequestBody @Valid PersonDTO personDTO) {
+    public MessageResponseDTO create(@RequestBody @Valid PersonDTO personDTO) {
         return personService.createPerson(personDTO);
     }
 
@@ -42,7 +41,6 @@ public class PersonController {
     public MessageResponseDTO updateById(@PathVariable Long id, @RequestBody PersonDTO personDTO) throws PersonNofFoundException {
         return personService.updateById(id, personDTO);
     }
-
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
