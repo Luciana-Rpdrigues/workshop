@@ -5,6 +5,7 @@ import com.luciana.desafio.workshop.dto.request.PersonDTO;
 import com.luciana.desafio.workshop.dto.response.MessageResponseDTO;
 import com.luciana.desafio.workshop.exception.PersonNofFoundException;
 import com.luciana.desafio.workshop.service.PersonService;
+import javax.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 

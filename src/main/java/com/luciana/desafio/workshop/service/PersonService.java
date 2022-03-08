@@ -2,10 +2,11 @@ package com.luciana.desafio.workshop.service;
 
 import ch.qos.logback.core.util.PropertySetterException;
 import com.luciana.desafio.workshop.contact_of_customer.Person;
+import com.luciana.desafio.workshop.dto.mapper.PersonMapper;
 import com.luciana.desafio.workshop.dto.request.PersonDTO;
 import com.luciana.desafio.workshop.dto.response.MessageResponseDTO;
 import com.luciana.desafio.workshop.exception.PersonNofFoundException;
-import com.luciana.desafio.workshop.mapper.PersonMapper;
+
 import com.luciana.desafio.workshop.repository.PersonRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
