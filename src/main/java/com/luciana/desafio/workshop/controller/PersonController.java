@@ -47,4 +47,6 @@ public class PersonController {
     public void deleteById(Long id) throws PersonNofFoundException {
         personService.delete(id);
     }
+    
+    return "Test inicial";
 }
