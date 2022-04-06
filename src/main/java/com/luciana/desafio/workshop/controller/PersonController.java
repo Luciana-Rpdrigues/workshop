@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-@RestController // anotação
+@RestController
 @RequestMapping ("/api/v1/people")
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 public class PersonController {
@@ -47,6 +47,4 @@ public class PersonController {
     public void deleteById(Long id) throws PersonNofFoundException {
         personService.delete(id);
     }
-    
-    return "Test inicial";
 }

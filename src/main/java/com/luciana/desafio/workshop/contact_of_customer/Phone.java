@@ -9,10 +9,10 @@ import com.luciana.desafio.workshop.enums.PhoneType;
 import javax.persistence.*;
 
 @Entity
-@Data //get e set
+@Data
 @Builder
-@AllArgsConstructor // construtores
-@NoArgsConstructor // construtores
+@AllArgsConstructor
+@NoArgsConstructor
 public class Phone {
 
     @Id
